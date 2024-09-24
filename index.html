@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>login form</title>
+<style>
+/* General Body and Form Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a5ecb1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #28a745;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="date"], 
+input[type="number"], 
+select {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: #e1e0e0;
+    outline: none;
+}
+
+input::placeholder {
+    color: #898989;
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #e1e0e0;
+}
+
+.form-inline label {
+    margin-right: 10px;
+}
+
+h6 {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+    font-size:1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+    form {
+        padding: 15px;
+    }
+
+    .form-detail {
+        gap: 10px;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    input[type="date"], 
+    input[type="number"], 
+    select, 
+    input[type="submit"] {
+        font-size: 20px;
+        padding: 14px;
+    }
+}
+</style>
+</head>
+<body>
+<form method="post" name="submit-to-google-sheet">
+    <h1>Register Form</h1>
+<div class="form-detail">
+<input type="text"placeholder="First name" name="firstname"   required>
+<input type="text"placeholder="Middle name" name="middlename"  required>
+<input type="text"placeholder="Last name" name="surname" required>
+<input type="email"placeholder="Email" name="email" required>
+<input type="date" name="date" value="date"  required>
+
+<select name="city/village" placeholder="City" required>
+<option>palanpur</option>
+<option>chappi</option>
+<option>majadar</option>
+<option>badargadh</option>
+<option>Deesa</option>
+<option>Danta</option>
+<option>Basu</option>
+<option>Meta</option>
+<option>Mahi</option>
+<option>Pirojpura</option>
+<option>other</option>
+</select>
+
+<input type="number" Placeholder="Mobile-No" name="phone" required>
+ <div class="form-inline">
+    <label><input type="radio"name="gender" value="male">Male</label>
+    <label><input type="radio"name="gender" value="female">Female</label>
+  </div> 
+<input type="submit" value="REGISTER">
+<h6>Made By:Badhra Danish &copy: Badhra's son</h6>
+</div>
+
+</form>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzXkrocQEroe2r3ndr__XKzIEPjRul9kTl2D5lER7o3rgPul2Fz5dKQ724wKWx7PkAK/exec'
+  
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {                                                                                                                                                                                                                                                                                                                                                                                    
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thank you for  giving your data"))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
+
+                                                                                                                                                                                     
